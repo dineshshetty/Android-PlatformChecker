@@ -64,18 +64,26 @@ public class MainCheckerActivity extends AppCompatActivity {
     public String checkIfDeviceIsEmulator1() {
         //Normal function String returnType & No arguments
 
-        if(Build.FINGERPRINT.startsWith("generic")
+        if(Build.FINGERPRINT.contains("generic")
                 || Build.FINGERPRINT.startsWith("unknown")
                 || Build.MODEL.contains("google_sdk")
                 || Build.MODEL.contains("Emulator")
                 || Build.MODEL.contains("Android SDK built for x86")
+                || Build.MODEL.contains("sdk")
+                || Build.MODEL.contains("x86")
+                || Build.MODEL.contains("unknown")
                 || Build.MANUFACTURER.contains("Genymotion")
+                || Build.FINGERPRINT.contains("test-keys")
+                || Build.PRODUCT.contains("vbox86p")
                 || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
                 || "google_sdk".equals(Build.PRODUCT))
         {
+
             return "yes";
-        }
+        }else{
             return "no";
+
+        }
 
     }
 
